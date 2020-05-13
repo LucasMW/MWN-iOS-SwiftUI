@@ -36,6 +36,7 @@ struct ItemView: View {
     var item : Item {
         return model.item ?? getItemMock()
     }
+    @State private var isSharePresented: Bool = false
     var body: some View {
         ZStack {
             WebImage(url: URL(string: item.image ?? "")!).resizable().scaledToFill().blendMode(.luminosity).background(Color.black, alignment: .bottom)
@@ -43,15 +44,25 @@ struct ItemView: View {
                        ZStack {
                            Text(self.item.title ?? "O PSOL é um partido de pirocas").foregroundColor(Color.white).font(.title)
                            }.background(Color.black).frame(width: 330,height: 200, alignment: .center)
-                Text(self.item.description ?? "").frame(width: 330, height: 200, alignment: .center).background(Color.white).foregroundColor(.black)
+                ScrollView {
+                    Text(self.item.description ?? "").padding(20).background(Color.white).foregroundColor(.black)
+                }.frame(width: 330, height: 400)
+                
                        Button("Go to page",action: {
                         print("\(self.item.id)")
-                        self.model.goToWebPage() }).background(Color.black).padding(30).foregroundColor(.white)
+                        self.model.goToWebPage() }).padding(30).background(Color.black).foregroundColor(.white)
+                Button("Share",action: {
+                    self.isSharePresented = true
+                     print("\(self.item.id)")
+                    })
+                .sheet(isPresented: $isSharePresented, onDismiss: {
+                    print("Dismissed \(self.isSharePresented)")
+                }, content: {
+                    ActivityViewController(activityItems: [URL(string: self.item.id!)!])
+                })
                        }.scaledToFit()
             
-             
         }
-       
         .onAppear() {
             //self.model.load()
         }

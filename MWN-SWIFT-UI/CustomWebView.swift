@@ -10,7 +10,12 @@ import SwiftUI
 
 struct CustomWebView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Button("Finish", action: {
+                }).colorInvert()
+            Webview(url: URL(string:"https://thehider.surge.sh")!)
+        }
+        
     }
 }
 

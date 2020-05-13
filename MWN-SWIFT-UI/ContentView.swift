@@ -65,8 +65,11 @@ struct ContentView: View {
 //                            NavigationLink(destination: ItemView(item: self.posts[i])) {
 //                                Text("Check!")
                             NavigationLink(destination: ItemView(item: self.posts[i]), tag: i, selection: self.$selected) {
-                                Text("")
+                                EmptyView()
                             }
+//                            NavigationLink(destination: Webview(url: URL(string: self.posts[i].id!)!), tag: i, selection: self.$selected) {
+//                                EmptyView()
+//                            }
 //                            }
                         }.onTapGesture {
                             print("go to \(self.posts[i].id)")
@@ -81,6 +84,7 @@ struct ContentView: View {
                 }
             }.onAppear(){
                 self.model.load()
+                displayReviewByProbability(chance: 1/100)
             }
             }
         .navigationBarTitle("MWN",displayMode: .inline)
@@ -94,5 +98,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView(model: ViewModel(feed: GabFeed(JSONString: jsonMock)))
+        //Webview(url: URL(string: "https://github.com")!)
     }
 }
