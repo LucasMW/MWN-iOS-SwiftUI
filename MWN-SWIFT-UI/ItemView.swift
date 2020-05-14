@@ -20,8 +20,8 @@ class ItemViewModel : ObservableObject {
     }
     func goToWebPage() {
         if let url = URL(string: item!.id!),
-                UIApplication.shared.canOpenURL(url) {
-                    UIApplication.shared.open(url, options: [:])
+            UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:])
         }
     }
 }
@@ -39,30 +39,33 @@ struct ItemView: View {
     @State private var isSharePresented: Bool = false
     var body: some View {
         ZStack {
-            WebImage(url: URL(string: item.image ?? "")!).resizable().scaledToFill().blendMode(.luminosity).background(Color.black, alignment: .bottom)
+            WebImage(url: URL(string: item.image ?? "")!).resizable().blendMode(.luminosity).background(Color.black).blur(radius: 20)
             VStack (alignment: .center) {
-                       ZStack {
-                           Text(self.item.title ?? "O PSOL é um partido de pirocas").foregroundColor(Color.white).font(.title)
-                           }.background(Color.black).frame(width: 330,height: 200, alignment: .center)
-                ScrollView {
+                ZStack {
+                    Text(self.item.title ?? "O PSOL é um partido de pirocas").foregroundColor(Color.white).font(.title)
+                    }.background(Color.black)
+                ScrollView(.vertical) {
                     Text(self.item.description ?? "").padding(20).background(Color.white).foregroundColor(.black)
-                }.frame(width: 330, height: 400)
+                }.background(Color.white)
                 
-                       Button("Go to page",action: {
+                HStack(alignment: .center, spacing: 50) {
+                    Button("Go to page",action: {
+                    print("\(self.item.id)")
+                    self.model.goToWebPage() }).padding().background(Color.secondary).foregroundColor(.white)
+                    Button("Share",action: {
+                        self.isSharePresented = true
                         print("\(self.item.id)")
-                        self.model.goToWebPage() }).padding(30).background(Color.black).foregroundColor(.white)
-                Button("Share",action: {
-                    self.isSharePresented = true
-                     print("\(self.item.id)")
-                    })
-                .sheet(isPresented: $isSharePresented, onDismiss: {
-                    print("Dismissed \(self.isSharePresented)")
-                }, content: {
-                    ActivityViewController(activityItems: [URL(string: self.item.id!)!])
-                })
-                       }.scaledToFit()
+                    }).padding().background(Color.secondary).foregroundColor(Color.white)
+                        .sheet(isPresented: $isSharePresented, onDismiss: {
+                            print("Dismissed \(self.isSharePresented)")
+                        }, content: {
+                            ActivityViewController(activityItems: [URL(string: self.item.id!)!])
+                        })
+                }.padding(.vertical, 50)
+                
+            }.padding(.all, 30)
             
-        }
+            }
         .onAppear() {
             //self.model.load()
         }

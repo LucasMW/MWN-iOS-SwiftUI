@@ -84,6 +84,7 @@ struct ContentView: View {
                 }
             }.onAppear(){
                 self.model.load()
+                print("Loading")
                 displayReviewByProbability(chance: 1/100)
             }
             }
