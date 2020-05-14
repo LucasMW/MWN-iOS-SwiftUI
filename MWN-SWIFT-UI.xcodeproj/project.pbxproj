@@ -11,6 +11,11 @@
 		88BDA9E195C7E656DBF20C17 /* Pods_MWN_SWIFT_UI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36971AB9904C6CD816339599 /* Pods_MWN_SWIFT_UI.framework */; };
 		8DBA0175FE96F780A274B3FE /* Pods_MWN_SWIFT_UI_MWN_SWIFT_UIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EA9E482062261D2747E9144 /* Pods_MWN_SWIFT_UI_MWN_SWIFT_UIUITests.framework */; };
 		FF0D83522468EE8B00200B7C /* jsonMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0D83512468EE8B00200B7C /* jsonMock.swift */; };
+		FF0D8354246A361100200B7C /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0D8353246A361100200B7C /* WebView.swift */; };
+		FF0D8356246A374200200B7C /* CustomWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0D8355246A374200200B7C /* CustomWebView.swift */; };
+		FF0D8396246A648C00200B7C /* ReviewUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0D8395246A648C00200B7C /* ReviewUtil.swift */; };
+		FF0D8399246B651F00200B7C /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0D8398246B651E00200B7C /* ActivityViewController.swift */; };
+		FF0D839B246B95C900200B7C /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0D839A246B95C900200B7C /* SnapshotHelper.swift */; };
 		FF9DD303241AD0E000A74652 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9DD302241AD0E000A74652 /* AppDelegate.swift */; };
 		FF9DD305241AD0E000A74652 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9DD304241AD0E000A74652 /* SceneDelegate.swift */; };
 		FF9DD308241AD0E000A74652 /* MWN_SWIFT_UI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FF9DD306241AD0E000A74652 /* MWN_SWIFT_UI.xcdatamodeld */; };
@@ -55,7 +60,13 @@
 		EFD942EED5C53C2774F986FE /* Pods-MWN-SWIFT-UI-MWN-SWIFT-UIUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MWN-SWIFT-UI-MWN-SWIFT-UIUITests.release.xcconfig"; path = "Target Support Files/Pods-MWN-SWIFT-UI-MWN-SWIFT-UIUITests/Pods-MWN-SWIFT-UI-MWN-SWIFT-UIUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F8C72DB489E830E540FD4584 /* Pods-MWN-SWIFT-UI-MWN-SWIFT-UIUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MWN-SWIFT-UI-MWN-SWIFT-UIUITests.debug.xcconfig"; path = "Target Support Files/Pods-MWN-SWIFT-UI-MWN-SWIFT-UIUITests/Pods-MWN-SWIFT-UI-MWN-SWIFT-UIUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		FF0D83512468EE8B00200B7C /* jsonMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jsonMock.swift; sourceTree = "<group>"; };
-		FF9DD2FF241AD0E000A74652 /* MWN-SWIFT-UI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MWN-SWIFT-UI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF0D8353246A361100200B7C /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		FF0D8355246A374200200B7C /* CustomWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomWebView.swift; sourceTree = "<group>"; };
+		FF0D8395246A648C00200B7C /* ReviewUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewUtil.swift; sourceTree = "<group>"; };
+		FF0D8397246A657F00200B7C /* MWN-Minimal World News.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MWN-Minimal World News.entitlements"; sourceTree = "<group>"; };
+		FF0D8398246B651E00200B7C /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
+		FF0D839A246B95C900200B7C /* SnapshotHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
+		FF9DD2FF241AD0E000A74652 /* MWN-Minimal World News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MWN-Minimal World News.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF9DD302241AD0E000A74652 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF9DD304241AD0E000A74652 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FF9DD307241AD0E000A74652 /* MWN_SWIFT_UI.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MWN_SWIFT_UI.xcdatamodel; sourceTree = "<group>"; };
@@ -143,7 +154,7 @@
 		FF9DD300241AD0E000A74652 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FF9DD2FF241AD0E000A74652 /* MWN-SWIFT-UI.app */,
+				FF9DD2FF241AD0E000A74652 /* MWN-Minimal World News.app */,
 				FF9DD318241AD0E300A74652 /* MWN-SWIFT-UITests.xctest */,
 				FF9DD323241AD0E300A74652 /* MWN-SWIFT-UIUITests.xctest */,
 			);
@@ -153,17 +164,22 @@
 		FF9DD301241AD0E000A74652 /* MWN-SWIFT-UI */ = {
 			isa = PBXGroup;
 			children = (
+				FF0D8397246A657F00200B7C /* MWN-Minimal World News.entitlements */,
 				FF9DD337241AFDB100A74652 /* Model */,
 				FF9DD302241AD0E000A74652 /* AppDelegate.swift */,
 				FF9DD304241AD0E000A74652 /* SceneDelegate.swift */,
 				FF9DD309241AD0E000A74652 /* ContentView.swift */,
+				FF0D8355246A374200200B7C /* CustomWebView.swift */,
+				FF0D8353246A361100200B7C /* WebView.swift */,
 				FF0D83512468EE8B00200B7C /* jsonMock.swift */,
+				FF0D8398246B651E00200B7C /* ActivityViewController.swift */,
 				FF9DD335241AFD3200A74652 /* ItemView.swift */,
 				FF9DD30B241AD0E300A74652 /* Assets.xcassets */,
 				FF9DD310241AD0E300A74652 /* LaunchScreen.storyboard */,
 				FF9DD313241AD0E300A74652 /* Info.plist */,
 				FF9DD306241AD0E000A74652 /* MWN_SWIFT_UI.xcdatamodeld */,
 				FF9DD30D241AD0E300A74652 /* Preview Content */,
+				FF0D8395246A648C00200B7C /* ReviewUtil.swift */,
 			);
 			path = "MWN-SWIFT-UI";
 			sourceTree = "<group>";
@@ -190,6 +206,7 @@
 			children = (
 				FF9DD327241AD0E300A74652 /* MWN_SWIFT_UIUITests.swift */,
 				FF9DD329241AD0E300A74652 /* Info.plist */,
+				FF0D839A246B95C900200B7C /* SnapshotHelper.swift */,
 			);
 			path = "MWN-SWIFT-UIUITests";
 			sourceTree = "<group>";
@@ -232,7 +249,7 @@
 			);
 			name = "MWN-SWIFT-UI";
 			productName = "MWN-SWIFT-UI";
-			productReference = FF9DD2FF241AD0E000A74652 /* MWN-SWIFT-UI.app */;
+			productReference = FF9DD2FF241AD0E000A74652 /* MWN-Minimal World News.app */;
 			productType = "com.apple.product-type.application";
 		};
 		FF9DD317241AD0E300A74652 /* MWN-SWIFT-UITests */ = {
@@ -454,6 +471,7 @@
 			files = (
 				FF9DD303241AD0E000A74652 /* AppDelegate.swift in Sources */,
 				FF9DD305241AD0E000A74652 /* SceneDelegate.swift in Sources */,
+				FF0D8356246A374200200B7C /* CustomWebView.swift in Sources */,
 				FF9DD33C241AFDC100A74652 /* GabFeed.swift in Sources */,
 				FF9DD33F241AFDC100A74652 /* Author.swift in Sources */,
 				FF9DD30A241AD0E000A74652 /* ContentView.swift in Sources */,
@@ -462,6 +480,9 @@
 				FF9DD336241AFD3200A74652 /* ItemView.swift in Sources */,
 				FF9DD33E241AFDC100A74652 /* API.swift in Sources */,
 				FF9DD308241AD0E000A74652 /* MWN_SWIFT_UI.xcdatamodeld in Sources */,
+				FF0D8399246B651F00200B7C /* ActivityViewController.swift in Sources */,
+				FF0D8396246A648C00200B7C /* ReviewUtil.swift in Sources */,
+				FF0D8354246A361100200B7C /* WebView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -478,6 +499,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF9DD328241AD0E300A74652 /* MWN_SWIFT_UIUITests.swift in Sources */,
+				FF0D839B246B95C900200B7C /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -627,7 +649,9 @@
 			baseConfigurationReference = 11E9214AAFDEA691D6A49FD0 /* Pods-MWN-SWIFT-UI.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "MWN-SWIFT-UI/MWN-Minimal World News.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0.3;
 				DEVELOPMENT_ASSET_PATHS = "\"MWN-SWIFT-UI/Preview Content\"";
 				DEVELOPMENT_TEAM = N39N6XW3TU;
 				ENABLE_PREVIEWS = YES;
@@ -636,10 +660,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "MWAPPTECH.MWN-SWIFT-UI";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "MWN-Minimal World News";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -648,7 +674,9 @@
 			baseConfigurationReference = BF8086C886C4E8A4DA6BCD46 /* Pods-MWN-SWIFT-UI.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "MWN-SWIFT-UI/MWN-Minimal World News.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0.3;
 				DEVELOPMENT_ASSET_PATHS = "\"MWN-SWIFT-UI/Preview Content\"";
 				DEVELOPMENT_TEAM = N39N6XW3TU;
 				ENABLE_PREVIEWS = YES;
@@ -657,10 +685,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "MWAPPTECH.MWN-SWIFT-UI";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "MWN-Minimal World News";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -683,7 +713,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MWN-SWIFT-UI.app/MWN-SWIFT-UI";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MWN-Minimal World News.app/MWN-Minimal World News";
 			};
 			name = Debug;
 		};
@@ -706,7 +736,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MWN-SWIFT-UI.app/MWN-SWIFT-UI";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MWN-Minimal World News.app/MWN-Minimal World News";
 			};
 			name = Release;
 		};
