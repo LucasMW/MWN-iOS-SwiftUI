@@ -29,8 +29,8 @@ class ViewModel : ObservableObject {
     }
     func goToWebPage(i : Int) {
         if let url = URL(string: items[i].id!),
-                UIApplication.shared.canOpenURL(url) {
-                    UIApplication.shared.open(url, options: [:])
+            UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:])
         }
     }
 }
@@ -38,6 +38,9 @@ class ViewModel : ObservableObject {
 struct ContentView: View {
     @ObservedObject var model = ViewModel()
     @State var selected : Int?
+    var loading : Bool {
+        return posts.count < 1
+    }
     var posts : [Item] {
         return model.items
     }
@@ -45,59 +48,64 @@ struct ContentView: View {
         return URL(string: posts[i].image ?? "")!
     }
     var body: some View {
+        
         NavigationView {
-        VStack {
-            ZStack {
-                Text("Minimal World News").font(.system(size:30))
-                .fontWeight(.heavy)
-                    .foregroundColor(Color.white).scaledToFit()
-            }.background(Color.black)
-            List {
-                 ForEach (0..<posts.count, id: \.self){ i in
-                    HStack {
-                        WebImage(url: self.imageUrlFor(i: i))
-                            .resizable()
-                            .placeholder(Image(systemName: "photo")).scaledToFit().padding()
-                        VStack {
-                            Text(self.posts[i].title ?? "").bold().fontWeight(.heavy).scaledToFit()
-                            //Text(self.posts[i].author ?? "")
-                            Text(self.posts[i].description ?? "").font(.system(size: 12))
-//                            NavigationLink(destination: ItemView(item: self.posts[i])) {
-//                                Text("Check!")
-                            NavigationLink(destination: ItemView(item: self.posts[i]), tag: i, selection: self.$selected) {
-                                EmptyView()
+            VStack {
+                ZStack {
+                    Text("Minimal World News").font(.system(size:30))
+                        .fontWeight(.heavy)
+                        .foregroundColor(Color.white).scaledToFit()
+                }.background(Color.black)
+                if loading {
+                    ActivityIndicatorView()
+                } else {
+                    EmptyView()
+                }
+                List {
+                    ForEach (0..<posts.count, id: \.self){ i in
+                        HStack {
+                            WebImage(url: self.imageUrlFor(i: i))
+                                .resizable()
+                                .placeholder(Image(systemName: "photo")).scaledToFit().padding()
+                            VStack {
+                                Text(self.posts[i].title ?? "").bold().fontWeight(.heavy).scaledToFit()
+                                //Text(self.posts[i].author ?? "")
+                                Text(self.posts[i].description ?? "").font(.system(size: 12))
+                                //                            NavigationLink(destination: ItemView(item: self.posts[i])) {
+                                //                                Text("Check!")
+                                NavigationLink(destination: ItemView(item: self.posts[i]), tag: i, selection: self.$selected) {
+                                    EmptyView()
+                                }
+                                
+                                //                            NavigationLink(destination: Webview(url: URL(string: self.posts[i].id!)!), tag: i, selection: self.$selected) {
+                                //                                EmptyView()
+                                //                            }
+                                //                            }
+                            }.onTapGesture {
+                                print("go to \(self.posts[i].id)")
+                                print("go to \(i)")
+                                self.selected = i
+                            }.onLongPressGesture {
+                                self.model.goToWebPage(i: i)
                             }
-//                            NavigationLink(destination: Webview(url: URL(string: self.posts[i].id!)!), tag: i, selection: self.$selected) {
-//                                EmptyView()
-//                            }
-//                            }
-                        }.onTapGesture {
-                            print("go to \(self.posts[i].id)")
-                            print("go to \(i)")
-                            self.selected = i
-                        }.onLongPressGesture {
-                            self.model.goToWebPage(i: i)
+                            
                         }
                         
                     }
-                    
+                }.onAppear(){
+                    self.model.load()
+                    print("Loading")
+                    displayReviewByProbability(chance: 1/100)
                 }
-            }.onAppear(){
-                self.model.load()
-                print("Loading")
-                displayReviewByProbability(chance: 1/100)
             }
-            }
-        .navigationBarTitle("MWN",displayMode: .inline)
+            .navigationBarTitle("MWN",displayMode: .inline)
         }
-        
-        
-        
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
+        //ActivityIndicatorView()
         ContentView(model: ViewModel(feed: GabFeed(JSONString: jsonMock)))
         //Webview(url: URL(string: "https://github.com")!)
     }
