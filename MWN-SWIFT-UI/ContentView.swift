@@ -57,7 +57,7 @@ struct ContentView: View {
                     HStack {
                         WebImage(url: self.imageUrlFor(i: i))
                             .resizable()
-                            .placeholder(Image(systemName: "photo")).scaledToFit()
+                            .placeholder(Image(systemName: "photo")).scaledToFit().padding()
                         VStack {
                             Text(self.posts[i].title ?? "").bold().fontWeight(.heavy).scaledToFit()
                             //Text(self.posts[i].author ?? "")
