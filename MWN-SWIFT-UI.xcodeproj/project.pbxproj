@@ -16,6 +16,7 @@
 		FF0D8396246A648C00200B7C /* ReviewUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0D8395246A648C00200B7C /* ReviewUtil.swift */; };
 		FF0D8399246B651F00200B7C /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0D8398246B651E00200B7C /* ActivityViewController.swift */; };
 		FF0D839B246B95C900200B7C /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0D839A246B95C900200B7C /* SnapshotHelper.swift */; };
+		FF61CE45246E47A200AF2D8D /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF61CE44246E47A200AF2D8D /* ActivityIndicatorView.swift */; };
 		FF9DD303241AD0E000A74652 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9DD302241AD0E000A74652 /* AppDelegate.swift */; };
 		FF9DD305241AD0E000A74652 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9DD304241AD0E000A74652 /* SceneDelegate.swift */; };
 		FF9DD308241AD0E000A74652 /* MWN_SWIFT_UI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FF9DD306241AD0E000A74652 /* MWN_SWIFT_UI.xcdatamodeld */; };
@@ -66,6 +67,7 @@
 		FF0D8397246A657F00200B7C /* MWN-Minimal World News.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MWN-Minimal World News.entitlements"; sourceTree = "<group>"; };
 		FF0D8398246B651E00200B7C /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		FF0D839A246B95C900200B7C /* SnapshotHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
+		FF61CE44246E47A200AF2D8D /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
 		FF9DD2FF241AD0E000A74652 /* MWN-Minimal World News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MWN-Minimal World News.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF9DD302241AD0E000A74652 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF9DD304241AD0E000A74652 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				FF9DD337241AFDB100A74652 /* Model */,
 				FF9DD302241AD0E000A74652 /* AppDelegate.swift */,
 				FF9DD304241AD0E000A74652 /* SceneDelegate.swift */,
+				FF61CE44246E47A200AF2D8D /* ActivityIndicatorView.swift */,
 				FF9DD309241AD0E000A74652 /* ContentView.swift */,
 				FF0D8355246A374200200B7C /* CustomWebView.swift */,
 				FF0D8353246A361100200B7C /* WebView.swift */,
@@ -475,6 +478,7 @@
 				FF9DD33C241AFDC100A74652 /* GabFeed.swift in Sources */,
 				FF9DD33F241AFDC100A74652 /* Author.swift in Sources */,
 				FF9DD30A241AD0E000A74652 /* ContentView.swift in Sources */,
+				FF61CE45246E47A200AF2D8D /* ActivityIndicatorView.swift in Sources */,
 				FF0D83522468EE8B00200B7C /* jsonMock.swift in Sources */,
 				FF9DD33D241AFDC100A74652 /* Item.swift in Sources */,
 				FF9DD336241AFD3200A74652 /* ItemView.swift in Sources */,
@@ -651,7 +655,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "MWN-SWIFT-UI/MWN-Minimal World News.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.3;
+				CURRENT_PROJECT_VERSION = 1.0.5.2;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"MWN-SWIFT-UI/Preview Content\"";
 				DEVELOPMENT_TEAM = N39N6XW3TU;
 				ENABLE_PREVIEWS = YES;
@@ -660,12 +665,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 1.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "MWAPPTECH.MWN-SWIFT-UI";
 				PRODUCT_NAME = "MWN-Minimal World News";
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -676,7 +681,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "MWN-SWIFT-UI/MWN-Minimal World News.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.3;
+				CURRENT_PROJECT_VERSION = 1.0.5.2;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"MWN-SWIFT-UI/Preview Content\"";
 				DEVELOPMENT_TEAM = N39N6XW3TU;
 				ENABLE_PREVIEWS = YES;
@@ -685,12 +691,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 1.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "MWAPPTECH.MWN-SWIFT-UI";
 				PRODUCT_NAME = "MWN-Minimal World News";
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
