@@ -31,6 +31,7 @@
 		FF9DD33D241AFDC100A74652 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9DD339241AFDC100A74652 /* Item.swift */; };
 		FF9DD33E241AFDC100A74652 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9DD33A241AFDC100A74652 /* API.swift */; };
 		FF9DD33F241AFDC100A74652 /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9DD33B241AFDC100A74652 /* Author.swift */; };
+		FFE820782474356F000C138D /* Censorship.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE820772474356F000C138D /* Censorship.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 		FF9DD339241AFDC100A74652 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		FF9DD33A241AFDC100A74652 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		FF9DD33B241AFDC100A74652 /* Author.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
+		FFE820772474356F000C138D /* Censorship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Censorship.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 				FF0D8355246A374200200B7C /* CustomWebView.swift */,
 				FF0D8353246A361100200B7C /* WebView.swift */,
 				FF0D83512468EE8B00200B7C /* jsonMock.swift */,
+				FFE820772474356F000C138D /* Censorship.swift */,
 				FF0D8398246B651E00200B7C /* ActivityViewController.swift */,
 				FF9DD335241AFD3200A74652 /* ItemView.swift */,
 				FF9DD30B241AD0E300A74652 /* Assets.xcassets */,
@@ -481,6 +484,7 @@
 				FF61CE45246E47A200AF2D8D /* ActivityIndicatorView.swift in Sources */,
 				FF0D83522468EE8B00200B7C /* jsonMock.swift in Sources */,
 				FF9DD33D241AFDC100A74652 /* Item.swift in Sources */,
+				FFE820782474356F000C138D /* Censorship.swift in Sources */,
 				FF9DD336241AFD3200A74652 /* ItemView.swift in Sources */,
 				FF9DD33E241AFDC100A74652 /* API.swift in Sources */,
 				FF9DD308241AD0E000A74652 /* MWN_SWIFT_UI.xcdatamodeld in Sources */,
@@ -655,8 +659,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "MWN-SWIFT-UI/MWN-Minimal World News.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.5.2;
-				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
+				CURRENT_PROJECT_VERSION = 1.0.6;
 				DEVELOPMENT_ASSET_PATHS = "\"MWN-SWIFT-UI/Preview Content\"";
 				DEVELOPMENT_TEAM = N39N6XW3TU;
 				ENABLE_PREVIEWS = YES;
@@ -665,12 +668,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.5;
+				MARKETING_VERSION = 1.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = "MWAPPTECH.MWN-SWIFT-UI";
 				PRODUCT_NAME = "MWN-Minimal World News";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -681,8 +684,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "MWN-SWIFT-UI/MWN-Minimal World News.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.5.2;
-				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
+				CURRENT_PROJECT_VERSION = 1.0.6;
 				DEVELOPMENT_ASSET_PATHS = "\"MWN-SWIFT-UI/Preview Content\"";
 				DEVELOPMENT_TEAM = N39N6XW3TU;
 				ENABLE_PREVIEWS = YES;
@@ -691,12 +693,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.5;
+				MARKETING_VERSION = 1.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = "MWAPPTECH.MWN-SWIFT-UI";
 				PRODUCT_NAME = "MWN-Minimal World News";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

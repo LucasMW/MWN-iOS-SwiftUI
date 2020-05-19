@@ -28,6 +28,47 @@ struct GabFeed : Mappable {
 
 	}
 
+    mutating func filterFor(bannedWords : [String]) {
+        guard let itens = self.items else { return }
+        let filtered = itens.filter({ (item) -> Bool in
+            var banned = false
+            for word in bannedWords {
+                guard let description = item.description?.lowercased(), let title = item.title?.lowercased() else {
+                    continue
+                }
+                banned = description.contains(word) || title.contains(word)
+                if banned {
+                    print("remove \(title) because of \(word)")
+                    print(word)
+                    return !banned
+                }
+            }
+            return !banned
+        })
+        print("removed \(itens.count - filtered.count) items")
+        self.items = filtered
+    }
+    mutating func filterFor(bannedSites : [String]) {
+        guard let itens = self.items else { return }
+        let filtered = itens.filter({ (item) -> Bool in
+            var banned = false
+            for site in bannedSites {
+                guard let id = item.id, let author = item.author?.name  else {
+                    continue
+                }
+                banned = id.contains(site) || author.contains(site)
+                if banned {
+                    print("remove \(author) because of \(site)")
+                    print(site)
+                    return !banned
+                }
+            }
+            return !banned
+        })
+        print("removed \(itens.count - filtered.count) items")
+        self.items = filtered
+    }
+    
 	mutating func mapping(map: Map) {
 
 		version <- map["version"]

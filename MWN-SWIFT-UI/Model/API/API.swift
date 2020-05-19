@@ -28,5 +28,23 @@ class API {
             }
         }
     }
+    func getBehavior(completion : @escaping (Bool)->()) {
+        let url = "http://dontpad.com/mwn/censorship.body.json?lastUpdate=0"
+        print("xxx \(url)")
+        Alamofire.request(url).responseString { (response) in
+            switch response.result {
+            case .success(let res):
+                let str = res
+                    print(str)
+                if str.contains("censored : false") {
+                        completion(false)
+                    } else {
+                        completion(true)
+                    }
+            case .failure(_):
+                completion(true)
+            }
+        }
+    }
     
 }
