@@ -12,6 +12,8 @@ import SDWebImageSwiftUI
 class ViewModel : ObservableObject {
     
     @Published var feed : GabFeed? = nil
+    var censored = true
+
     //@Published var items : [Item] = [Item](repeating: Item(forDisplayWith: "display", description: "description"), count: 24)
     init(feed : GabFeed? = nil){
         self.feed = feed
@@ -23,9 +25,17 @@ class ViewModel : ObservableObject {
     
     func load() {
         let api = API()
-        api.getNews { (feed) in
-            self.feed = feed
+        api.getBehavior { (shouldCensor) in
+            print("should censor \(shouldCensor)")
+            self.censored = shouldCensor
+            api.getNews { (feed) in
+                self.feed = feed
+                if self.censored {
+                    self.feed?.filterFor(bannedWords: Censorship.pandemic)
+                }
+            }
         }
+        
     }
     func goToWebPage(i : Int) {
         if let url = URL(string: items[i].id!),
@@ -47,6 +57,21 @@ struct ContentView: View {
     func imageUrlFor(i : Int) -> URL {
         return URL(string: posts[i].image ?? "")!
     }
+    func dateFor(i : Int) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd-hh:mm:ss"
+        let dummy  = "2020-05-17-05:33:50"
+        
+        let dateString = String( posts[i].date_published?.split(separator: ".").first ?? "").replacingOccurrences(of: "T", with: "-")
+        print(dateString)
+        guard let dateObj = dateFormatter.date(from: dateString) else {
+            return dateString
+        }
+        dateFormatter.dateStyle = .long
+        let xd = dateFormatter.string(from: dateObj)
+        print(xd)
+        return xd
+    }
     var body: some View {
         
         NavigationView {
@@ -60,6 +85,7 @@ struct ContentView: View {
                     ActivityIndicatorView()
                 } else {
                     EmptyView()
+                    //Text(dateFor(i: 0))
                 }
                 List {
                     ForEach (0..<posts.count, id: \.self){ i in
@@ -69,18 +95,14 @@ struct ContentView: View {
                                 .placeholder(Image(systemName: "photo")).scaledToFit().padding()
                             VStack {
                                 Text(self.posts[i].title ?? "").bold().fontWeight(.heavy).scaledToFit()
-                                //Text(self.posts[i].author ?? "")
+                                
+                                //Text(self.dateFor(i: i)).fontWeight(.light).underline()
                                 Text(self.posts[i].description ?? "").font(.system(size: 12))
-                                //                            NavigationLink(destination: ItemView(item: self.posts[i])) {
-                                //                                Text("Check!")
+                               
                                 NavigationLink(destination: ItemView(item: self.posts[i]), tag: i, selection: self.$selected) {
                                     EmptyView()
                                 }
                                 
-                                //                            NavigationLink(destination: Webview(url: URL(string: self.posts[i].id!)!), tag: i, selection: self.$selected) {
-                                //                                EmptyView()
-                                //                            }
-                                //                            }
                             }.onTapGesture {
                                 print("go to \(self.posts[i].id)")
                                 print("go to \(i)")
