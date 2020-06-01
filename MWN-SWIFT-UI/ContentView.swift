@@ -54,8 +54,9 @@ struct ContentView: View {
     var posts : [Item] {
         return model.items
     }
-    func imageUrlFor(i : Int) -> URL {
-        return URL(string: posts[i].image ?? "")!
+    //should return optional, Webimage can use placeholder without problems
+    func imageUrlFor(i : Int) -> URL? {
+        return URL(string: posts[i].image ?? "")
     }
     func dateFor(i : Int) -> String {
         let dateFormatter = DateFormatter()

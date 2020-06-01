@@ -39,7 +39,7 @@ struct ItemView: View {
     @State private var isSharePresented: Bool = false
     var body: some View {
         ZStack {
-            WebImage(url: URL(string: item.image ?? "")!).resizable().blendMode(.luminosity).background(Color.black).blur(radius: 20)
+            WebImage(url: URL(string: item.image ?? "")).resizable().blendMode(.luminosity).background(Color.black).blur(radius: 20)
             VStack (alignment: .center) {
                 ZStack {
                     Text(self.item.title ?? "O PSOL é um partido de pirocas").foregroundColor(Color.white).font(.title)
