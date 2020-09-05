@@ -50,11 +50,11 @@ struct ItemView: View {
                 
                 HStack(alignment: .center, spacing: 50) {
                     Button("Go to page",action: {
-                    print("\(self.item.id)")
+
                     self.model.goToWebPage() }).padding().background(Color.secondary).foregroundColor(.white)
                     Button("Share",action: {
                         self.isSharePresented = true
-                        print("\(self.item.id)")
+
                     }).padding().background(Color.secondary).foregroundColor(Color.white)
                         .sheet(isPresented: $isSharePresented, onDismiss: {
                             print("Dismissed \(self.isSharePresented)")

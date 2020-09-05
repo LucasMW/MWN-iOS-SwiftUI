@@ -60,9 +60,7 @@ struct ContentView: View {
     }
     func dateFor(i : Int) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd-hh:mm:ss"
-        let dummy  = "2020-05-17-05:33:50"
-        
+        dateFormatter.dateFormat = "yyyy-MM-dd-hh:mm:ss"        
         let dateString = String( posts[i].date_published?.split(separator: ".").first ?? "").replacingOccurrences(of: "T", with: "-")
         print(dateString)
         guard let dateObj = dateFormatter.date(from: dateString) else {
@@ -105,7 +103,7 @@ struct ContentView: View {
                                 }
                                 
                             }.onTapGesture {
-                                print("go to \(self.posts[i].id)")
+                                print("go to \(self.posts[i].id ?? "no id")")
                                 print("go to \(i)")
                                 self.selected = i
                             }.onLongPressGesture {
